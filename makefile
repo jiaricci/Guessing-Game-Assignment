@@ -1,12 +1,13 @@
 all: README.md
 
-README.md: 
-	echo "## The Unix Workbench Guessing Game assignment" > README.md
-	echo "\n**Description**: program called *guessinggame.sh*. This program should continously ask user to guess the number of files in current directory until the number is correct." >> README.md
-	echo " This Make File ran at: $(shell date +%Y-%m-%d:%H:%M:%S)\n" >> README.md
-	echo " There were $(shell wc -l < guessinggame.sh) lines in guessinggame.sh\n" >> README.md
+README.md: guessinggame.sh
+	echo "## The Unix Workbench course assignment"> README.md
+	echo "*by Johns Hopkins University.*">> README.md
+	echo "\n**Description**: make a program called *guessinggame.sh*. This programs should continuously ask the user to guesss how many files in directory and at the same time advise the guesser if they are higher or lower and once right number is chosen, congratulate them.">> README.md
+	echo -n "\n**Make Date**: ">> README.md
+	date >> README.md
+	echo -n "\n**Number of lines in guessinggame.sh:**" >> README.md
 	grep -c '' guessinggame.sh >> README.md
 
 clean:
 	rm README.md
-
